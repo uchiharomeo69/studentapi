@@ -5,5 +5,5 @@ const router = express.Router();
 router.get("/", studentControler.findStudent);
 router.put("/", studentControler.insertStudent);
 router.post("/", studentControler.updateStudent);
-router.delete("/", studentControler.deleteStudent);
+router.post("/delete", studentControler.deleteStudent);
 module.exports = router;

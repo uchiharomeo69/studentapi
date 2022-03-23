@@ -6,7 +6,7 @@ class StudentService {
     return await studentSchema.find(searchObject);
   }
   async remove(code) {
-    return await studentSchema.findOneAndDelete(code);
+    return await studentSchema.findOneAndDelete({ code });
   }
   async update(student) {
     return await studentSchema.findOneAndReplace(

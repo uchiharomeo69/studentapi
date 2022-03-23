@@ -21,7 +21,7 @@ class StudentController {
   async deleteStudent(req, res) {
     try {
       const { code } = req.body;
-      res.status(200).json(await studentService.delete(code));
+      res.status(200).json(await studentService.remove(code));
     } catch (error) {
       res.status(404).json({ messages: error.message });
     }

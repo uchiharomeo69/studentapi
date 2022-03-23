@@ -1,5 +1,5 @@
 const _ = require("lodash");
-const user = require("../user/user.services");
+const userServices = require("../user/user.services");
 const jwt = require("../helper/jwt.helper");
 
 module.exports = async (req, res, next) => {
@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
       return res.status(403).json({ message: authorizationError });
     }
     const _id = jwt.veryfyData(token)?._id;
-    const user = await user.find({ _id });
+    const user = await userServices.find({ _id });
 
     if (_.isEmpty(user)) {
       return res.status(403).json({ message: authorizationError });

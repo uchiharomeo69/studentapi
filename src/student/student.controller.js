@@ -1,5 +1,5 @@
 const studentService = require("./student.services");
-class studentController {
+class StudentController {
   async findStudent(req, res) {
     const { findBy, searchInfor } = req.query;
     const searchObject = {
@@ -38,4 +38,4 @@ class studentController {
   }
 }
 
-module.exports = new studentController();
+module.exports = new StudentController();

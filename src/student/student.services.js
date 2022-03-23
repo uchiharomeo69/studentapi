@@ -10,12 +10,14 @@ class StudentService {
   }
   async update(student) {
     return await studentSchema.findOneAndReplace(
-      { code: student.code },
+      { code: student?.code },
       student
     );
   }
   async insert(student) {
-    const findStudent = await this.find({ ["code"]: { $regex: student.code } });
+    const findStudent = await this.find({
+      ["code"]: { $regex: student?.code },
+    });
     if (!_.isEmpty(findStudent)) {
       return null;
     }

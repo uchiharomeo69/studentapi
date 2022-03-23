@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongo = require("./src/database/connect");
 const studentRouter = require("./src/student/student.routes");
+const userRouter = require("./src/user/user.routes");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -15,5 +16,6 @@ app.listen(PORT, () => {
 });
 
 app.use("/student", studentRouter);
+app.use("/", userRouter);
 
 mongo.connect();
